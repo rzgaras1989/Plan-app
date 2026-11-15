@@ -1,0 +1,26 @@
+{
+  "id": "./",
+  "name": "دەفتەری پلان",
+  "short_name": "دەفتەری پلان",
+  "description": "دەفتەری پلانی مامۆستا — پلانی ساڵانە، وەرزی و ڕۆژانە",
+  "lang": "ckb",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6a50",
+  "categories": [
+    "education",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "plan.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
