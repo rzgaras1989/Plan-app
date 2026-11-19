@@ -21,7 +21,7 @@
 /* ===================== A4 PAPER ===================== */
 #measure{position:absolute;left:-12000px;top:0;visibility:hidden;pointer-events:none}
 .page{--ink:#17222d;--mut:#66768a;--ln:#d7dfe8;width:210mm;height:296.5mm;background:#fff;color:var(--ink);position:relative;overflow:hidden;flex:none;
-  font:400 11.5px/1.6 var(--f-body);direction:rtl;text-align:right;-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box}
+  font:700 11px/1.55 var(--f-body);direction:rtl;text-align:right;-webkit-print-color-adjust:exact;print-color-adjust:exact;box-sizing:border-box}
 .page *{box-sizing:border-box}
 .pg-in{display:flex;flex-direction:column;height:calc(296.5mm - 10mm)}
 .pg-body{flex:1;min-height:0;overflow:hidden;padding:4mm 10mm 3mm;position:relative}
@@ -103,12 +103,12 @@
 
 /* tables */
 .tblock{margin-top:1px}
-.tb{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--ln);border-radius:7px;overflow:hidden;font-size:10.4px;table-layout:fixed}
+.tb{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--ln);border-radius:7px;overflow:hidden;font-size:9.8px;table-layout:fixed}
 .tb th{background:var(--p1);color:#fff;font:700 9.8px/1.35 var(--f-head);padding:5px 3px;text-align:center}
-.tb td{padding:3px 5px;border-top:1px solid #e6ebf1;border-inline-start:1px solid #eef2f6;vertical-align:top;overflow-wrap:anywhere;line-height:1.6}
+.tb td{padding:2.4px 4px;border-top:1px solid #e6ebf1;border-inline-start:1px solid #eef2f6;vertical-align:top;overflow-wrap:anywhere;line-height:1.6}
 .tb td:first-child{border-inline-start:0}
 .tb tbody tr:nth-child(even) td{background:#f8faf9}
-.tb td.c{text-align:center}.tb td.sm{font-size:9.2px;line-height:1.5}
+.tb td.c{text-align:center}.tb td.sm{font-size:8.6px;line-height:1.45}
 .tb tr.tot td{background:var(--t1)!important;font-weight:700;color:var(--p1)}
 .tb tr.hol td{background:repeating-linear-gradient(135deg,#f2f4f7 0 6px,#e9edf2 6px 12px)!important;color:#566170}
 .tb tr.exm td{background:var(--t3)!important}
@@ -306,6 +306,38 @@ details.opt>summary{font:600 14px var(--f-body)}
 
 hr.sep{border:0;border-top:1px dashed var(--line);margin:2px 0;width:100%}
 
+
+/* send dialog + file colours */
+.mh{font:700 13px var(--f-head);color:var(--muted);margin:14px 2px 7px;letter-spacing:.2px}
+.fmts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fm{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 6px 10px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);cursor:pointer;text-align:center;transition:.15s}
+.fm input{position:absolute;opacity:0;pointer-events:none}
+.fm .fi{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--t1);color:var(--brand);margin-bottom:2px}
+.fm .fi svg{width:22px;height:22px}.fm b{font:700 14px var(--f-head)}.fm small{font-size:11px;color:var(--muted);line-height:1.35}
+.fm:has(input:checked){border-color:var(--brand);box-shadow:0 0 0 3px var(--ring);background:var(--t1)}
+.fm:has(input:checked) .fi{background:var(--brand);color:var(--on-brand)}
+html[data-theme=dark] .fm:has(input:checked){background:rgba(52,211,153,.12)}
+.hint-print{display:none}.sheet:has(input[value=print]:checked) .hint-print{display:block}
+.apps{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:12px 0 4px}
+.apps span{display:inline-flex;align-items:center;gap:6px;font:600 12px var(--f-body);padding:4px 10px 4px 9px;border-radius:99px;background:color-mix(in srgb,var(--c) 12%,transparent);color:var(--text);border:1px solid color-mix(in srgb,var(--c) 35%,transparent)}
+.apps span i{width:9px;height:9px;border-radius:50%;background:var(--c)}.apps .more{--c:var(--muted);padding:4px 11px}
+.okmark{width:54px;height:54px;border-radius:50%;margin:4px auto 6px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;box-shadow:0 8px 22px rgba(13,106,80,.35)}.okmark svg{width:28px;height:28px;stroke-width:2.6}
+.ctr{text-align:center;justify-content:center}
+.sumrow{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 4px}
+.sumrow div{background:var(--surface2);border:1px solid var(--line);border-radius:12px;padding:9px 4px;text-align:center}
+.sumrow b{display:block;font:800 16px var(--f-head);color:var(--brand)}.sumrow small{font-size:11px;color:var(--muted)}
+.btn.big{padding:13px 18px;font-size:15.5px;border-radius:14px}
+.bar.big{height:10px;border-radius:99px}.bar.big i{border-radius:99px}
+.pals{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:9px}
+.pal{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 6px 8px;border:1.5px solid var(--line);border-radius:14px;background:var(--surface);cursor:pointer;font:600 12px var(--f-body);color:var(--text);transition:.15s}
+.pal i{width:46px;height:46px;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(255,255,255,.35),0 3px 8px rgba(0,0,0,.18)}
+.pal.on{border-color:var(--brand);box-shadow:0 0 0 3px var(--ring);background:var(--t1)}
+.pal.on::after{content:"✓";position:absolute;top:5px;inset-inline-start:7px;font:800 13px var(--f-body);color:var(--brand)}
+.pal input[type=color]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:pointer;border:0;padding:0}
+.palbar{height:12px;border-radius:99px;background:linear-gradient(90deg,var(--pd),var(--p1) 40%,var(--p2) 75%,var(--p3));box-shadow:0 2px 8px rgba(0,0,0,.15)}
+
+.sc-h .no:empty{display:none}
+
 /* print */
 #printRoot{display:none}
 @media print{
@@ -369,9 +401,31 @@ const academicStartYear=()=>{const n=new Date();return n.getMonth()>=7?n.getFull
 
 /* ---- state ---- */
 let S=null,memOnly=false;
+/* ---- file (paper) colours ---- */
+const PAL=[
+ {id:'green',name:'سەوزی تۆخ',p1:'#0b6b52',p2:'#1b66b8',p3:'#b9791a',pd:'#064634',t1:'#e6f3ee',t2:'#e4eefa',t3:'#fbf0dc'},
+ {id:'blue',name:'شینی تۆخ',p1:'#1d4296',p2:'#0e7a86',p3:'#b9791a',pd:'#102a63',t1:'#e6ecfa',t2:'#e2f2f3',t3:'#fbf0dc'},
+ {id:'teal',name:'تیل',p1:'#0f766e',p2:'#0369a1',p3:'#b45309',pd:'#0a4a45',t1:'#e0f3f1',t2:'#e2eff8',t3:'#fcefdc'},
+ {id:'purple',name:'مۆر',p1:'#5b2a9e',p2:'#8a3fb0',p3:'#b9791a',pd:'#371366',t1:'#efe7f9',t2:'#f4e8f8',t3:'#fbf0dc'},
+ {id:'wine',name:'سووری تۆخ',p1:'#8e1b3a',p2:'#b4472f',p3:'#a07416',pd:'#560e22',t1:'#f8e7ec',t2:'#faece6',t3:'#faf0d8'},
+ {id:'amber',name:'ئەمبەر',p1:'#b45309',p2:'#0f766e',p3:'#7c3aed',pd:'#783308',t1:'#fdeedd',t2:'#e0f3f1',t3:'#f0e8fd'},
+ {id:'slate',name:'خۆڵەمێشی',p1:'#334155',p2:'#0e7490',p3:'#b45309',pd:'#0f172a',t1:'#e8edf3',t2:'#e0f1f5',t3:'#fcefdc'}];
+const h2rgb=h=>{h=h.replace('#','');return[0,2,4].map(i=>parseInt(h.substr(i,2),16))};
+const h2hsl=h=>{let[r,g,b]=h2rgb(h).map(x=>x/255);const m=Math.max(r,g,b),n=Math.min(r,g,b),l=(m+n)/2,d=m-n;let hh=0,s=0;
+  if(d){s=d/(1-Math.abs(2*l-1));hh=m===r?((g-b)/d)%6:m===g?(b-r)/d+2:(r-g)/d+4;hh*=60;if(hh<0)hh+=360}return[hh,s,l]};
+const hsl2h=(h,s,l)=>{const c=(1-Math.abs(2*l-1))*s,x=c*(1-Math.abs((h/60)%2-1)),m=l-c/2;let r=0,g=0,b=0;
+  if(h<60)[r,g,b]=[c,x,0];else if(h<120)[r,g,b]=[x,c,0];else if(h<180)[r,g,b]=[0,c,x];else if(h<240)[r,g,b]=[0,x,c];else if(h<300)[r,g,b]=[x,0,c];else[r,g,b]=[c,0,x];
+  return'#'+[r,g,b].map(v=>Math.round((v+m)*255).toString(16).padStart(2,'0')).join('')};
+const mixW=(hex,a)=>'#'+h2rgb(hex).map(c=>Math.round(c+(255-c)*a).toString(16).padStart(2,'0')).join('');
+function customPal(hex){if(!/^#[0-9a-f]{6}$/i.test(hex||''))hex='#0b6b52';const[h,s,l]=h2hsl(hex);
+  const p1=hsl2h(h,Math.min(.9,Math.max(.35,s)),Math.min(l,.36)),pd=hsl2h(h,Math.min(.9,Math.max(.35,s)),Math.min(l,.36)*.58),p2=hsl2h((h+38)%360,Math.min(.75,Math.max(.4,s)),.36);
+  return{p1,p2,p3:'#b9791a',pd,t1:mixW(p1,.9),t2:mixW(p2,.9),t3:'#fbf0dc'}}
+function paperPal(){const c=(S&&S.settings.pcolor)||{id:'auto'};if(c.id==='custom')return customPal(c.custom);return PAL.find(x=>x.id===c.id)||null}
+function applyPaperColor(){let st=document.getElementById('palStyle');if(!st){st=document.createElement('style');st.id='palStyle';document.head.appendChild(st)}
+  const p=paperPal();st.textContent=p?`#prevHost,#printRoot,#measure{${['p1','p2','p3','pd','t1','t2','t3'].map(k=>`--${k}:${p[k]}`).join(';')}}`:''}
 function freshSettings(){const y=academicStartYear();return{theme:'light',kd:false,eco:false,
   profile:{ministry1:'حکومەتی هەرێمی کوردستان',ministry2:'وەزارەتی پەروەردە',directorate:'',school:'',teacher:'',principal:'',supervisor:'',year:`${y} – ${y+1}`,logo:''},
-  terms:{1:{start:`${y}-09-20`,end:`${y+1}-01-22`},2:{start:`${y+1}-02-14`,end:`${y+1}-06-10`}}}}
+  pcolor:{id:'auto',custom:'#0b6b52'},terms:{1:{start:`${y}-09-20`,end:`${y+1}-01-22`},2:{start:`${y+1}-02-14`,end:`${y+1}-06-10`}}}}
 function newBook(o={}){return{id:uid(),subject:o.subject||'فیزیا',grade:String(o.grade||'12'),branch:'',section:o.section||'',weekly:o.weekly||4,
   annual:{aims:'',methods:'',assess:'',notes:'',units:[]},terms:{1:{goals:'',rows:[]},2:{goals:'',rows:[]}},daily:[]}}
 function newUnit(b,term){return{id:uid(),title:'',periods:12,term:term||1,m1:term===2?5:0,m2:term===2?5:0,objectives:'',methods:'',assess:''}}
@@ -446,7 +500,7 @@ function migrateDaily(b,d){const n=Object.assign(newDaily(b,d.date),d);n.opening
   if(d.means===undefined)n.means=[d.methods,d.materials,d.assess].filter(x=>x&&String(x).trim()).join('، ');
   return n}
 function migrate(o){const f=freshState();const s=Object.assign(f,o);s.settings=Object.assign(f.settings,o.settings||{});s.settings.profile=Object.assign(f.settings.profile,(o.settings||{}).profile||{});
-  s.settings.terms=Object.assign(f.settings.terms,(o.settings||{}).terms||{});delete s.settings.tg;s.ui=Object.assign(f.ui,o.ui||{});
+  s.settings.terms=Object.assign(f.settings.terms,(o.settings||{}).terms||{});delete s.settings.tg;s.settings.pcolor=Object.assign(f.settings.pcolor,(o.settings||{}).pcolor||{});s.ui=Object.assign(f.ui,o.ui||{});
   if(!['annual','term','daily','setup'].includes(s.ui.tab))s.ui.tab='daily';
   s.books=(o.books||[]).map(b=>{const n=Object.assign(newBook(),b);n.annual=Object.assign(newBook().annual,b.annual||{});n.terms={1:Object.assign({goals:'',rows:[]},(b.terms||{})[1]),2:Object.assign({goals:'',rows:[]},(b.terms||{})[2])};
     [1,2].forEach(t=>n.terms[t].rows.forEach(r=>{if(!r._m){r._m=1;const x=[r.notes,r.activities,r.assess].filter(v=>v&&String(v).trim()).join(' · ');r.notes=x}}));
@@ -455,7 +509,15 @@ function migrate(o){const f=freshState();const s=Object.assign(f,o);s.settings=O
 function load(){try{const r=localStorage.getItem(KEY);if(r)return migrate(JSON.parse(r))}catch(e){}return null}
 let saveTimer;
 function save(){clearTimeout(saveTimer);setInd('wait');saveTimer=setTimeout(saveNow,300)}
-function saveNow(){try{localStorage.setItem(KEY,JSON.stringify(S));setInd('ok');memOnly=false}catch(e){memOnly=true;setInd('err')}}
+function saveNow(){clearTimeout(saveTimer);if(!S)return;let j;try{j=JSON.stringify(S)}catch(e){return}
+  try{localStorage.setItem(KEY,j);setInd('ok');memOnly=false}catch(e){memOnly=true;setInd('err')}idbPut(j)}
+/* second copy in IndexedDB: restores the data if the browser ever clears localStorage */
+let idbP=null;const idb=()=>idbP||(idbP=new Promise(r=>{try{const q=indexedDB.open('rawen-planner',1);q.onupgradeneeded=()=>q.result.createObjectStore('kv');q.onsuccess=()=>r(q.result);q.onerror=()=>r(null);q.onblocked=()=>r(null)}catch(e){r(null)}}));
+async function idbPut(j){try{const d=await idb();if(d)d.transaction('kv','readwrite').objectStore('kv').put(j,KEY)}catch(e){}}
+async function idbGet(){try{const d=await idb();if(!d)return null;return await new Promise(r=>{const q=d.transaction('kv').objectStore('kv').get(KEY);q.onsuccess=()=>r(q.result||null);q.onerror=()=>r(null)})}catch(e){return null}}
+/* nothing is lost when the app is closed / sent to background */
+window.addEventListener('pagehide',()=>saveNow());window.addEventListener('beforeunload',()=>saveNow());
+document.addEventListener('visibilitychange',()=>{if(document.hidden)saveNow()});
 function setInd(k){const e=$('#ind');if(!e)return;e.dataset.k=k;e.title=k==='ok'?'پاشەکەوتکرا':k==='wait'?'...':'پاشەکەوت نەکرا — لە ڕێکخستن پشتڕاستکردنەوە هەڵبگرە';e.lastElementChild.textContent=k==='ok'?'پاشەکەوتکرا':k==='wait'?'...':'پاشەکەوت نەکرا'}
 
 /* ---- path get/set (b.* = current book, s.* = settings) ---- */
@@ -601,7 +663,7 @@ const ICON={
  eye:'<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/>',
  form:'<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>',
  image:'<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-8 8"/>',
- chev:'<path d="m15 6-6 6 6 6"/>',warn:'<path d="M12 4 2.5 20h19z"/><path d="M12 10v4M12 17.5v.1"/>'};
+ pdf:'<path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5M9 14h6M9 17h4"/>',chev:'<path d="m15 6-6 6 6 6"/>',warn:'<path d="M12 4 2.5 20h19z"/><path d="M12 10v4M12 17.5v.1"/>'};
 const I=(n,c)=>`<svg class="i ${c||''}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[n]}</svg>`;
 const ATOM_I=`<svg class="i" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><ellipse cx="24" cy="24" rx="20" ry="8"/><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="20" ry="8" transform="rotate(120 24 24)"/><circle cx="24" cy="24" r="3.6" fill="currentColor" stroke="none"/></svg>`;
 const TABS=[['annual','پلانی ساڵانە','year'],['term','پلانی وەرزی','term'],['daily','پلانی ڕۆژانە','day'],['setup','ڕێکخستن','gear']];
@@ -637,7 +699,7 @@ function renderShell(){
   <input type="file" id="impFile" accept=".json,application/json" hidden><input type="file" id="logoFile" accept="image/*" hidden>
   <div id="modal"></div><div id="toast" role="status"></div><div id="printRoot"></div>`;
 }
-function renderChrome(){const b=cur();document.documentElement.dataset.theme=S.settings.theme;
+function renderChrome(){const b=cur();applyPaperColor();document.documentElement.dataset.theme=S.settings.theme;
   $('#bkLbl').textContent=`${b.subject} · ${D(b.grade)}${b.section?' '+b.section:''}`;
   $$('.th').forEach(e=>e.classList.toggle('on',e.dataset.id===S.settings.theme));
   $$('.tab').forEach(e=>e.classList.toggle('on',e.dataset.id===S.ui.tab));
@@ -709,13 +771,20 @@ function viewDaily(){const b=cur();let p=b.daily.find(x=>x.id===S.ui.daily);if(!
 
 /* ---- setup ---- */
 function logoBox(){const l=S.settings.profile.logo;return `<div class="logo-edit"><div class="lg">${l?`<img src="${l}" alt="">`:ATOM_I}</div><div class="row-a">${btn('logo-pick','لۆگۆ','image','sm')}${l?btn('logo-clear','لابردن','x','ghost sm'):''}</div></div>`}
+function palCard(){const c=S.settings.pcolor||{id:'auto',custom:'#0b6b52'};
+  const sw=(id,name,bg)=>`<button type="button" class="pal${c.id===id?' on':''}" data-act="pal" data-id="${id}" title="${name}"><i style="background:${bg}"></i><span>${name}</span></button>`;
+  const cp=customPal(c.custom);
+  return sc('','ڕەنگی فایلەکان',`<p class="hint" style="margin-top:-4px">ڕەنگی PDF و وێنە و چاپ — هەموو پلانەکان بەم ڕەنگە دەردەکەون.</p>
+   <div class="pals">${sw('auto','وەک مۆد','conic-gradient(#0b6b52 0 33%,#1d4296 0 66%,#064634 0)')}${PAL.map(p=>sw(p.id,p.name,`linear-gradient(135deg,${p.pd},${p.p1} 55%,${p.p2})`)).join('')}
+   <label class="pal custom${c.id==='custom'?' on':''}" title="ڕەنگی خۆت"><i id="palDot" style="background:linear-gradient(135deg,${cp.pd},${cp.p1} 55%,${cp.p2})"></i><span>ڕەنگی خۆت</span><input type="color" data-p="s.pcolor.custom" value="${esc(c.custom||'#0b6b52')}" aria-label="ڕەنگی خۆت"></label></div>
+   <div class="palbar" aria-hidden="true"></div>`)}
 function viewSetup(){
   return `<div class="page-wrap setup">${sampleBar()}
   ${sc('','زانیاری مامۆستا و قوتابخانە',`<div class="grid2">${fld('ناوی مامۆستا','s.profile.teacher')}${fld('ناوی قوتابخانە','s.profile.school')}${fld('بەڕێوەبەرایەتی پەروەردە','s.profile.directorate')}${fld('ساڵی خوێندن','s.profile.year')}${fld('بەڕێوەبەری قوتابخانە','s.profile.principal')}${fld('سەرپەرشتیاری پەروەردەیی','s.profile.supervisor')}</div>${logoBox()}`)}
   ${sc('','بەروارەکانی وەرزەکان',`<div class="grid2">${fld('وەرزی یەکەم — دەستپێک','s.terms.1.start',{type:'date'})}${fld('وەرزی یەکەم — کۆتایی','s.terms.1.end',{type:'date'})}${fld('وەرزی دووەم — دەستپێک','s.terms.2.start',{type:'date'})}${fld('وەرزی دووەم — کۆتایی','s.terms.2.end',{type:'date'})}</div>`)}
   ${sc('','ئەم دەفتەرە',`<div class="grid2">${fld('وانە','b.subject',{list:'subList'})}${fld('پۆل','b.grade',{opts:[['10','دەیەم'],['11','یانزەهەم'],['12','دوانزەهەم']]})}${fld('بەش / گرووپ','b.section',{ph:'A'})}${fld('وانە لە هەفتەیەکدا','b.weekly',{type:'number',num:1,min:1,max:12})}</div>
    <div class="row-a">${btn('book-new','دەفتەری نوێ','plus','sm')}${btn('book-del','سڕینەوەی ئەم دەفتەرە','trash','danger sm')}</div>`)}
-  ${sc('','تێلێگرام',`<p class="hint">پلانەکان وەک فایلی PDF و JSON بە جیا دەنێردرێن بۆ بۆتی تێلێگرام (لە «چاپ / ناردن»).</p><div class="row-a">${btn('tg-test','نامەی تاقیکردنەوە','send','sm')}</div>`)}
+  ${palCard()}
   ${sc('','پاشەکەوت',`<p class="hint">هەموو شتێک خۆکارانە لە Local Storageی ئەم براوزەرە پاشەکەوت دەبێت.</p><div class="row-a">${btn('export','هەڵگرتنی فایلی پشتڕاستکردنەوە','dl','primary sm')}${btn('import','گەڕاندنەوە لە فایل','ul','sm')}${btn('reset','سڕینەوەی هەموو داتاکان','trash','danger sm')}</div>${memOnly?`<p class="warnbox">${I('warn')} براوزەرەکەت ڕێگە بە پاشەکەوتکردن نادات؛ فایلی پشتڕاستکردنەوە هەڵبگرە.</p>`:''}`)}
   </div>`}
 
@@ -747,14 +816,16 @@ function collectDocs(scope){const b=cur();const dl=()=>sortedDaily(b);
    case'all':return[docAnnual(b),docTerm(b,1),docTerm(b,2),...dl().map(p=>docDaily(b,p))]}return[]}
 function openPrint(){const b=cur(),tab=S.ui.tab;const curLabel={annual:'پلانی ساڵانە',term:'پلانی وەرزی — '+TERM_N[S.ui.term],daily:'ئەم پلانە ڕۆژانەیە'}[tab];
   const opt=(v,l,sub,on)=>`<label class="po"><input type="radio" name="pscope" value="${v}"${on?' checked':''}><span><b>${l}</b>${sub?`<small>${sub}</small>`:''}</span></label>`;
-  modal(`<h3>${I('print')}چاپ و ناردن</h3>
+  const fm=(v,ic,t,sub,on)=>`<label class="fm"><input type="radio" name="pfmt" value="${v}"${on?' checked':''}><span class="fi">${I(ic)}</span><b>${t}</b><small>${sub}</small></label>`;
+  modal(`<h3>${I('send')}چاپ و ناردن</h3>
+   <div class="mh">کامەیان؟</div>
    <div class="po-list">${curLabel?opt('cur',curLabel,'',true):''}${opt('daily-all','هەموو پلانە ڕۆژانییەکان',D(b.daily.length)+' پلان')}${opt('all','هەموو دەفتەرەکە','ساڵانە + وەرزی + ڕۆژانە',!curLabel)}</div>
+   <div class="mh">بە چ شێوەیەک؟</div>
+   <div class="fmts">${fm('pdf','pdf','PDF','هەر لاپەڕەیەک = یەک A4',1)}${fm('img','image','وێنە','هەر وێنەیەک = یەک A4')}${fm('print','print','چاپ','بۆ چاپکەر')}</div>
    <label class="sw"><input type="checkbox" id="pEco"${S.settings.eco?' checked':''}><span>چاپی ئابووری (ڕەش و سپی)</span></label>
-   <div class="acts col"><button class="btn primary" data-act="print-go">${I('print')}<span>چاپکردن / هەڵگرتن وەک PDF</span></button></div>
-   <p class="hint">بۆ PDF: لە پەنجەرەی چاپ <bdi dir="ltr"><b>Save as PDF</b></bdi> هەڵبژێرە <bdi dir="ltr">(A4 · Margins: None)</bdi>.</p>
-   <hr class="sep">
-   <div class="acts col"><button class="btn tg" data-act="tg-go">${I('send')}<span>ناردن بۆ تێلێگرام (PDF + JSON)</span></button><button class="btn ghost" data-act="close">داخستن</button></div>
-   <p class="hint">بۆ تێلێگرام هەموو زانیاریەکان دەنێرێت: پلانی ساڵانە، وەرزی و ڕۆژانە — یەک فایلی PDF و یەک فایلی JSON بە جیا.</p>`)}
+   <div class="acts col"><button class="btn primary big" data-act="go">${I('send')}<span id="goLbl">ئامادەکردنی PDF</span></button><button class="btn ghost" data-act="close">داخستن</button></div>
+   <p class="hint hint-print">بۆ PDFی ڕاستەوخۆ لە پەنجەرەی چاپ <bdi dir="ltr"><b>Save as PDF</b></bdi> هەڵبژێرە <bdi dir="ltr">(A4 · Margins: None)</bdi>.</p>
+   ${appsRow()}<p class="hint" style="text-align:center">ناردن بۆ ئەم ئەپانە لە مۆبایلەوە</p>`)}
 function pickDocs(){S.settings.eco=$('#pEco').checked;save();const sc=($('input[name=pscope]:checked')||{}).value||'cur';return collectDocs(sc)}
 async function printDocs(docs){if(!docs.length){toast('هیچ بەڵگەیەک نییە');return}
   try{await document.fonts.ready}catch(e){}
@@ -765,6 +836,7 @@ async function printDocs(docs){if(!docs.length){toast('هیچ بەڵگەیەک �
 /* ================= EVENTS ================= */
 function afterEdit(p){
   save();
+  if(p==='s.pcolor.custom'){S.settings.pcolor.id='custom';applyPaperColor();const cp=customPal(S.settings.pcolor.custom);const d=$('#palDot');if(d)d.style.background=`linear-gradient(135deg,${cp.pd},${cp.p1} 55%,${cp.p2})`;$$('.pal').forEach(x=>x.classList.toggle('on',x.classList.contains('custom')))}
   if(/^b\.(subject|grade|section|weekly)$/.test(p))renderChrome();
   if(/^b\.annual\.units\.\d+\.(periods|term)$/.test(p)||/^b\.weekly$/.test(p)||/^s\.terms\./.test(p)){const s=$('#annStats');if(s)s.innerHTML=annualMeter(cur())}
   if(/^b\.daily\.\d+\.(date|title)$/.test(p)){const b=cur(),pl=b.daily[+/^b\.daily\.(\d+)/.exec(p)[1]],sel=$('#dpick');if(sel)sel.innerHTML=dailyOptions(b,pl)}
@@ -816,9 +888,11 @@ document.addEventListener('click',async e=>{
    case'daily-del':{const p=b.daily.find(x=>x.id===S.ui.daily);if(p&&await confirmBox('ئەم پلانە ڕۆژانەیە بسڕدرێتەوە؟','سڕینەوە',true)){b.daily=b.daily.filter(x=>x!==p);S.ui.daily='';save();renderView()}break}
    /* print / telegram / data */
    case'print-open':openPrint();break;
-   case'print-go':await printDocs(pickDocs());break;
-   case'tg-go':await sendToTelegram();break;
-   case'tg-test':try{await tgCall('sendMessage',{text:'✅ دەفتەری پلان بە سەرکەوتوویی بەستراوەتەوە بەم بۆتەوە.'});toast('نامەکە نێردرا')}catch(x){toast('نەنێردرا: '+x.message)}break;
+   case'go':{const f=($('input[name=pfmt]:checked')||{}).value||'pdf';const d=pickDocs();if(f==='print')await printDocs(d);else await prepareShare(d,f);break}
+   case'share-now':doShare(+id||0);break;
+   case'share-dl':downloadFiles();break;
+   case'back':openPrint();break;
+   case'pal':S.settings.pcolor.id=id;save();applyPaperColor();renderView();break;
    case'export':exportJSON();break;
    case'import':$('#impFile').click();break;
    case'reset':if(await confirmBox('هەموو داتاکانی ئەم ئەپە دەسڕدرێنەوە (دەفتەر، پلان، ڕێکخستن). ئەم کارە ناگەڕێتەوە!','هەمووی بسڕەوە',true)){S=freshState();const nb=newBook({});generateWeeks(nb,1);generateWeeks(nb,2);S.books=[nb];S.cur=nb.id;saveNow();renderAll();toast('هەموو داتاکان سڕانەوە')}break;
@@ -826,6 +900,7 @@ document.addEventListener('click',async e=>{
    case'logo-clear':S.settings.profile.logo='';save();renderView();break;
   }});
 document.addEventListener('change',e=>{
+  if(e.target.name==='pfmt'){const l=$('#goLbl');if(l)l.textContent={pdf:'ئامادەکردنی PDF',img:'ئامادەکردنی وێنەکان',print:'چاپکردن'}[e.target.value];return}
   if(e.target.id==='dpick'){S.ui.daily=e.target.value;save();renderView();return}
   if(e.target.id==='impFile'){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=async()=>{try{const o=JSON.parse(r.result);if(!o||!o.books)throw 0;
       if(await confirmBox('داتاکانی ئێستا بە داتای ناو فایلەکە دەگۆڕدرێن. بەردەوام بیت؟','گەڕاندنەوە')){S=migrate(o);saveNow();renderAll();toast('داتاکان گەڕێنرانەوە')}}catch(x){toast('فایلەکە دروست نییە')}e.target.value=''};r.readAsText(f)}
@@ -834,13 +909,11 @@ window.addEventListener('beforeprint',()=>{const r=$('#printRoot');if(r&&!r.chil
 window.addEventListener('afterprint',()=>{const r=$('#printRoot');if(r)r.replaceChildren()});
 window.addEventListener('resize',debounce(fitPreview,120));
 
-/* ================= TELEGRAM (PDF + images) ================= */
-/* Telegram bot: fixed inside the app (not shown in the UI, not saved in the data) */
-const TG_TOKEN='8206086990:AAE_4H2XLnw6fHYoED77bf0bgEASxbURVIo',TG_CHAT='1043807827';
+/* ================= SEND: PDF / images (every page = one A4 sheet) → WhatsApp, Telegram, Messenger, Viber … ================= */
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const PW=794,PH=1121;                       // A4 at 96dpi
 async function pageToJpeg(page,scale){
-  const cs=getComputedStyle(document.documentElement);
+  const cs=getComputedStyle($('#printRoot'));
   const vars=['--p1','--p2','--p3','--pd','--t1','--t2','--t3','--f-body','--f-head'].map(v=>`${v}:${cs.getPropertyValue(v).trim()}`).join(';');
   const css=$('#paperCss').textContent;
   const xml=new XMLSerializer().serializeToString(page);
@@ -851,9 +924,9 @@ async function pageToJpeg(page,scale){
   const c=document.createElement('canvas');c.width=Math.round(PW*scale);c.height=Math.round(PH*scale);const x=c.getContext('2d');
   x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(img,0,0,c.width,c.height);
   await sleep(40);x.drawImage(img,0,0,c.width,c.height);                      // 2nd draw: makes sure embedded fonts are applied
-  const blob=await new Promise((ok,no)=>c.toBlob(b=>b?ok(b):no(new Error('canvas')),'image/jpeg',.92));
+  const blob=await new Promise((ok,no)=>c.toBlob(b=>b?ok(b):no(new Error('canvas')),'image/jpeg',.93));
   return{blob,w:c.width,h:c.height,bytes:new Uint8Array(await blob.arrayBuffer())}}
-function makePDF(imgs){                      // one full-page JPEG per A4 page
+function makePDF(imgs){                      // one full-bleed A4 page per image
   const enc=new TextEncoder(),parts=[],offs=[];let len=0;
   const push=x=>{const b=typeof x==='string'?enc.encode(x):x;parts.push(b);len+=b.length};
   const N=imgs.length,PWpt=595.28,PHpt=841.89;
@@ -869,44 +942,59 @@ function makePDF(imgs){                      // one full-page JPEG per A4 page
   for(let i=1;i<total;i++)t+=String(offs[i]).padStart(10,'0')+' 00000 n \n';
   push(t+`trailer\n<< /Size ${total} /Root 1 0 R >>\nstartxref\n${xr}\n%%EOF`);
   return new Blob(parts,{type:'application/pdf'})}
-async function tgCall(method,fields){
-  const fd=new FormData();fd.append('chat_id',TG_CHAT);for(const k in fields){const v=fields[k];if(v instanceof Blob)fd.append(k,v,v.name||'file');else fd.append(k,v)}
-  let r;try{r=await fetch(`https://api.telegram.org/bot${TG_TOKEN}/${method}`,{method:'POST',body:fd})}catch(e){throw new Error('پەیوەندی بە ئینتەرنێت نییە')}
-  const j=await r.json().catch(()=>({}));if(!j.ok)throw new Error(j.description||('HTTP '+r.status));return j}
-const docsOfBook=b=>[docAnnual(b),docTerm(b,1),docTerm(b,2),...sortedDaily(b).map(p=>docDaily(b,p))];
-/* sends EVERYTHING: one JSON backup (all notebooks) + one PDF per notebook (annual + both terms + all daily plans) */
-async function sendToTelegram(){
-  const st=m=>{const e=$('#tgStat');if(e)e.textContent=m};const bar=p=>{const e=$('#tgBar');if(e)e.style.width=p+'%'};
-  modal(`<h3>${I('send')}ناردن بۆ تێلێگرام</h3><p class="cmsg" id="tgStat">ئامادەکردن...</p><div class="bar"><i id="tgBar" style="width:4%"></i></div><div class="acts" id="tgActs"></div>`,'sm');
-  const done=(msg,bad)=>{const e=$('#tgStat');if(e){e.textContent=msg;e.classList.toggle('bad',!!bad)}$('#tgActs').innerHTML=`<button class="btn primary" data-act="close">داخستن</button>`};
-  const stamp=iso(new Date()),log=[];
+
+const SH={files:[],fmt:'pdf',pages:0,batches:[]};
+const fmtSize=b=>b>=1048576?D((b/1048576).toFixed(1))+' MB':D(Math.max(1,Math.round(b/1024)))+' KB';
+const APPS=[['WhatsApp','#25D366'],['Telegram','#229ED9'],['Messenger','#0A7CFF'],['Viber','#7360F2']];
+const appsRow=()=>`<div class="apps">${APPS.map(([n,c])=>`<span style="--c:${c}"><i></i>${n}</span>`).join('')}<span class="more">…</span></div>`;
+const canShareFiles=fs=>{try{return !!(navigator.share&&navigator.canShare&&navigator.canShare({files:fs}))}catch(e){return false}};
+
+async function prepareShare(docs,fmt){
+  if(!docs.length){toast('هیچ بەڵگەیەک نییە');return}
+  modal(`<h3>${I(fmt==='pdf'?'pdf':'image')}ئامادەکردنی ${fmt==='pdf'?'PDF':'وێنەکان'}</h3><p class="cmsg" id="shStat">...</p><div class="bar big"><i id="shBar" style="width:3%"></i></div><div class="acts"><button class="btn" data-act="close">پاشگەزبوونەوە</button></div>`,'sm');
+  const st=m=>{const e=$('#shStat');if(e)e.textContent=m},bar=p=>{const e=$('#shBar');if(e)e.style.width=p+'%'},alive=()=>!!$('#shBar');
   try{
-    /* 1) JSON — whole data, separate file */
-    st('ناردنی فایلی JSON...');bar(8);saveNow();
-    const json=new File([JSON.stringify(S)],`Rawen_Planner_${stamp}.json`,{type:'application/json'});
-    await tgCall('sendDocument',{document:json,caption:`🗂 هەموو زانیاریەکان (JSON)\nدەتوانیت لە ئەپەکە بیگەڕێنیتەوە: ڕێکخستن ← گەڕاندنەوە لە فایل`});
-    log.push('JSON');bar(14);
-    /* 2) PDF — per notebook, separate file */
     try{await document.fonts.ready}catch(e){}
-    const books=S.books;
-    for(let bi=0;bi<books.length;bi++){
-      const b=books[bi],metas=renderDocsMeta(docsOfBook(b)),n=metas.length,imgs=[];
-      const scale=n<=30?2:n<=80?1.5:1.2;
-      for(let i=0;i<n;i++){
-        st(`PDF ${books.length>1?`(${b.subject} · ${GRADE_N[b.grade]||b.grade}) `:''}— لاپەڕە ${D(i+1)} لە ${D(n)}...`);
-        bar(14+((bi+i/n)/books.length)*70);
-        imgs.push(await pageToJpeg(metas[i].page,scale));await sleep(5)}
-      const pdf=makePDF(imgs);if(pdf.size>49*1024*1024)throw new Error('PDF لە 50MB گەورەترە');
-      st('ناردنی PDF...');bar(14+((bi+1)/books.length)*70);
-      await tgCall('sendDocument',{document:new File([pdf],`Plan_${bi+1}_grade${b.grade}_${stamp}.pdf`,{type:'application/pdf'}),
-        caption:`📘 ${b.subject} · پۆلی ${GRADE_N[b.grade]||b.grade}${b.section?' · '+b.section:''}\nپلانی ساڵانە + وەرزی + ڕۆژانە (${D(n)} لاپەڕە)`});
-      log.push('PDF')}
-    bar(100);done(`✓ نێردرا: JSON + ${D(log.filter(x=>x==='PDF').length)} فایلی PDF`)
-  }catch(e){done((log.length?`✓ نێردرا: ${log.join(' + ')}\n`:'')+'نەنێردرا: '+e.message,true)}}
+    const metas=renderDocsMeta(docs),n=metas.length,imgs=[],scale=n<=30?2:n<=80?1.5:1.2;
+    for(let i=0;i<n;i++){
+      if(!alive())return;                                  // closed by the user
+      st(`لاپەڕە ${D(i+1)} لە ${D(n)}`);bar(4+i/n*92);
+      imgs.push(await pageToJpeg(metas[i].page,scale));await sleep(5)}
+    if(!alive())return;
+    const stamp=iso(new Date()),b=cur();let files;
+    if(fmt==='pdf')files=[new File([makePDF(imgs)],`Plan_${stamp}.pdf`,{type:'application/pdf'})];
+    else files=imgs.map((im,i)=>new File([im.blob],`Plan_${stamp}_${String(i+1).padStart(2,'0')}.jpg`,{type:'image/jpeg'}));
+    SH.files=files;SH.fmt=fmt;SH.pages=n;
+    // how many files the browser lets us share in one go
+    let bs=files.length;for(const t of [files.length,10,5,1]){if(t>=1&&canShareFiles(files.slice(0,t))){bs=t;break}}
+    SH.batches=[];for(let i=0;i<files.length;i+=bs)SH.batches.push(files.slice(i,i+bs));
+    showShareResult()
+  }catch(e){modal(`<h3>${I('warn')}نەنێردرا</h3><p class="cmsg bad">${esc(e.message||'هەڵەیەک ڕوویدا')}</p><div class="acts"><button class="btn primary" data-act="back">گەڕانەوە</button></div>`,'sm')}}
+
+function showShareResult(){
+  const f=SH.files,total=f.reduce((a,x)=>a+x.size,0),can=canShareFiles(f.slice(0,1));
+  const label=SH.fmt==='pdf'?'PDF':'وێنە (JPG)';
+  const btns=!can?'':SH.batches.length===1
+    ?`<button class="btn primary big" data-act="share-now" data-id="0">${I('send')}<span>ناردن — ${SH.fmt==='pdf'?'PDF':D(f.length)+' وێنە'}</span></button>`
+    :SH.batches.map((bt,i)=>{const a=SH.batches.slice(0,i).reduce((n,x)=>n+x.length,0);return `<button class="btn ${i?'':'primary'} big" data-act="share-now" data-id="${i}">${I('send')}<span>ناردنی وێنەی ${D(a+1)} – ${D(a+bt.length)}</span></button>`}).join('');
+  modal(`<div class="okmark">${I('check')}</div><h3 class="ctr">ئامادەیە</h3>
+    <div class="sumrow"><div><b>${D(SH.pages)}</b><small>لاپەڕەی A4</small></div><div><b>${SH.fmt==='pdf'?'PDF':'JPG'}</b><small>${label}</small></div><div><b>${fmtSize(total)}</b><small>قەبارە</small></div></div>
+    ${appsRow()}
+    <div class="acts col">${btns}<button class="btn ${can?'':'primary big'}" data-act="share-dl">${I('dl')}<span>داگرتن لەسەر ئامێرەکە</span></button><button class="btn ghost" data-act="back">گەڕانەوە</button></div>
+    <p class="hint">${can?'دوای کلیک لەسەر «ناردن» لیستی ئەپەکانی مۆبایلەکەت دەردەکەوێت — WhatsApp، Telegram، Messenger، Viber و هتد. کەسەکە هەڵبژێرە و بینێرە.':'ئەم براوزەرە ناردنی ڕاستەوخۆی فایل پشتگیری ناکات. فایلەکان داگرە، پاشان لە WhatsApp یان Telegram یان Messenger یان Viber هاوپێچیان بکە. لە مۆبایل (Chrome یان Safari) ڕاستەوخۆ دەنێردرێت.'}</p>`,'sm')}
+
+async function doShare(i){
+  const files=SH.batches[i]||SH.files;
+  try{await navigator.share({files,title:'دەفتەری پلان'})}
+  catch(e){if(e&&e.name==='AbortError')return;toast('ناردن سەرکەوتوو نەبوو — «داگرتن» بەکاربهێنە')}}
+function downloadFiles(){
+  SH.files.forEach((f,i)=>setTimeout(()=>{const a=document.createElement('a');a.href=URL.createObjectURL(f);a.download=f.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000)},i*350));
+  toast(SH.files.length>1?'وێنەکان دادەگیرێن...':'PDFـەکە دادەگیرێت...')}
 
 /* ================= INIT ================= */
 (async function init(){
   S=load();
+  if(!S){const j=await idbGet();if(j){try{S=migrate(JSON.parse(j));saveNow()}catch(e){S=null}}}
   if(!S){S=freshState();const b=sampleBook();S.books.push(b);S.cur=b.id;S.sample=true;S.settings.profile.teacher='ناوی مامۆستا';S.settings.profile.school='ناوی قوتابخانە';S.ui.tab='daily';saveNow()}
   renderShell();renderChrome();
   try{await document.fonts.load('400 12px "RP Sans"');await document.fonts.load('800 12px "RP Kufi"');await document.fonts.ready}catch(e){}
