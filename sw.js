@@ -1,7 +1,7 @@
 /* دەفتەری پلان — service worker
    Network first (always the newest version when online), cache fallback (works offline).
    Change CACHE name when you want to force-clear old files. */
-const CACHE = 'dafteri-plan-v4';
+const CACHE = 'dafteri-plan-v5';
 const SHELL = ['./', 'index.html', 'manifest.json', 'plan.png', 'icon-192.png', 'apple-touch-icon.png'];
 
 self.addEventListener('install', e => {
